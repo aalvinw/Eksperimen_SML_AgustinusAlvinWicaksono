@@ -23,7 +23,6 @@ def save_preprocessed_data(df, output_path):
 def run_pipeline():
     input_path = Path('./E-Commerce_Shipping_raw/Train.csv')
     output_path = Path('./preprocessing/E-Commerce_Shipping_preprocessing/preprocessed_data.csv')
-')
     
     print("Loading data...")
     df = load_data(input_path)
