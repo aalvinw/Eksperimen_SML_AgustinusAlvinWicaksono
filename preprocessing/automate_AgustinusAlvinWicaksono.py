@@ -33,7 +33,7 @@ def run_pipeline():
     df = clean_data(df)
 
     print("Encoding labels...")
-    df = encode_labels(df, column='Shipping Mode')  # Ganti dengan kolom target yang BENAR
+    df = encode_labels(df, column='Reached.on.Time_Y.N') # Ganti dengan kolom target yang BENAR
 
     print("Saving preprocessed data...")
     save_preprocessed_data(df, output_path)
