@@ -17,23 +17,24 @@ def encode_labels(df, column):
     return df
 
 def save_preprocessed_data(df, output_path):
-    output_path.parent.mkdir(parents=True, exist_ok=True)  # create folder if needed
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)  # Buat folder jika belum ada
     df.to_csv(output_path, index=False)
 
 def run_pipeline():
-    input_path = 'https://raw.githubusercontent.com/aalvinw/Eksperimen_SML_AgustinusAlvinWicaksono/main/E-Commerce_Shipping_raw/Train.csv'
-    output_path = 'preprocessing/E-Commerce_Shipping_preprocessing/preprocessed_data.csv'
-    
+    input_path = 'E-Commerce_Shipping_raw/Train.csv'
+    output_path = 'E-Commerce_Shipping_preprocessing/preprocessed_data.csv'  # simpan dalam folder preprocessing/
+
     print("Loading data...")
     df = load_data(input_path)
 
-    print("Available columns:", df.columns.tolist())  # tambahkan debug
-    
+    print("Available columns:", df.columns.tolist())  # debug log
+
     print("Cleaning data...")
     df = clean_data(df)
 
     print("Encoding labels...")
-    df = encode_labels(df, column='Reached.on.Time_Y.N') # Ganti dengan kolom target yang BENAR
+    df = encode_labels(df, column='Reached.on.Time_Y.N')  # Kolom target binary
 
     print("Saving preprocessed data...")
     save_preprocessed_data(df, output_path)
