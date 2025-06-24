@@ -29,13 +29,19 @@ jobs:
         run: |
           python automate_AgustinusAlvinWicaksono.py
 
+      - name: Show generated files
+        run: |
+          echo "📂 List of files:"
+          find preprocessing/
+
       - name: Commit and push preprocessed data
+        working-directory: ./preprocessing  # ✅ Tambahkan working-directory agar path sesuai
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # 🔐 ambil dari GitHub Secrets
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add preprocessing/E-Commerce_Shipping_preprocessing/preprocessed_data.csv
+          git add E-Commerce_Shipping_preprocessing/preprocessed_data.csv
           git commit -m "Add preprocessed data from GitHub Actions" || echo "No changes to commit"
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
           git push origin HEAD:main
