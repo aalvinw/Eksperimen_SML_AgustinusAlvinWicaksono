@@ -19,8 +19,8 @@ def save_preprocessed_data(df, output_path):
     df.to_csv(output_path, index=False)
 
 def run_pipeline():
-    input_path = 'Eksperimen_SML_AgustinusAlvinWicaksono\E-Commerce_Shipping_raw\Train.csv'
-    output_path = 'Eksperimen_SML_AgustinusAlvinWicaksono\preprocessing\E-Commerce_Shipping_preprocessing\preprocessed_data.csv'
+    input_path = 'https://raw.githubusercontent.com/aalvinw/Eksperimen_SML_AgustinusAlvinWicaksono/refs/heads/main/E-Commerce_Shipping_raw/Train.csv
+    output_path = 'https://raw.githubusercontent.com/aalvinw/Eksperimen_SML_AgustinusAlvinWicaksono/refs/heads/main/preprocessing/E-Commerce_Shipping_preprocessing/preprocessed_data.csv'
     
     print("Loading data...")
     df = load_data(input_path)
