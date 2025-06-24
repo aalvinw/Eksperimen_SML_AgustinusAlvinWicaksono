@@ -31,7 +31,7 @@ jobs:
 
       - name: Commit and push preprocessed data
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # 🔐 ambil dari GitHub Secrets
+          GH_TOKEN: ${{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}}  # 🔐 ambil dari GitHub Secrets
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
